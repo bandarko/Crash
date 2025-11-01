@@ -1,0 +1,123 @@
+/* === RC • Top-right "Sada svira" badge + cover === */
+#rcnp-top-badge {
+  position: fixed;
+  top: 10px;
+  right: 84px;
+  z-index: 99999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.35);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 15.4px;
+  text-transform: uppercase;
+  max-width: 42vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: auto;
+}
+
+/* VEĆI cover samo na desktopu */
+#rcnp-top-badge .rcnp-cover {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover;
+  vertical-align: middle;
+  border-radius: 4px;
+  margin-right: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,.5);
+}
+
+/* Na mobitelu ne prikazujemo gornji badge */
+@media (max-width: 767px) {
+  #rcnp-top-badge { display: none !important; }
+}
+
+/* === Footer "SADA SVIRA" – uvijek novi red === */
+#qwPlayerAuthor {
+  display: block !important;
+  clear: both;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* === Link stilovi (gore i dolje) === */
+#rcnp-top-badge a,
+#qwPlayerAuthor a {
+  color: #fff !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  background-image: none !important;
+  transition: color 0.2s ease-in-out;
+}
+#rcnp-top-badge a:hover,
+#qwPlayerAuthor a:hover {
+  color: #d4af37 !important;
+}
+#rcnp-top-badge a:active,
+#qwPlayerAuthor a:active {
+  color: #fff !important;
+}
+#rcnp-top-badge a::after,
+#qwPlayerAuthor a::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* === LOGO lijevo pored hamburgera — samo na header koji SADRŽI #qwLogo === */
+header:has(#qwLogo),
+.site-header:has(#qwLogo),
+#masthead:has(#qwLogo) {
+  position: relative !important;
+  padding-left: 300px !important; /* prostor za #qwLogo */
+}
+
+/* Pozicioniranje loga */
+#qwLogo {
+  position: absolute !important;
+  top: 10px;
+  left: 90px;
+  margin: 0 !important;
+  transform: none !important;
+  text-align: left !important;
+  z-index: 1000;
+}
+#qwLogo > img {
+  display: block !important;
+  margin: 0 !important;
+  height: auto;
+  max-width: 240px;
+}
+
+/* Z-index za hamburger/toggler samo unutar istog headera */
+header:has(#qwLogo) .menu-toggle,
+header:has(#qwLogo) .mobile-menu-toggle,
+header:has(#qwLogo) .navbar-toggler,
+header:has(#qwLogo) .hamburger,
+header:has(#qwLogo) .offcanvas-toggle,
+header:has(#qwLogo) .drawer-toggle,
+header:has(#qwLogo) .toggle-menu,
+header:has(#qwLogo) .menu-icon {
+  position: relative !important;
+  z-index: 1002 !important;
+}
+
+/* Responsivnost */
+@media (max-width: 1024px) {
+  header:has(#qwLogo) { padding-left: 250px !important; }
+  header:has(#qwLogo) #qwLogo { left: 85px; }
+  header:has(#qwLogo) #qwLogo > img { max-width: 200px; }
+}
+@media (max-width: 768px) {
+  header:has(#qwLogo) { padding-left: 200px !important; }
+  header:has(#qwLogo) #qwLogo { top: 8px; left: 80px; }
+  header:has(#qwLogo) #qwLogo > img { max-width: 160px; }
+}
